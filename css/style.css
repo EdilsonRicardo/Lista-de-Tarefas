@@ -77,7 +77,7 @@ main{
 .item-icone{
     flex: 20%;
     /* border: 1px solid orangered; */
-    text-align: center;
+    text-align: center; 
 }
 
  img{

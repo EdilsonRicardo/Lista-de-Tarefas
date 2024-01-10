@@ -37,13 +37,17 @@ function addTarefa() {
 
     </div>
         `
+        // Adicionar Tarefa no início da lista
+        main.insertAdjacentHTML('afterbegin', novoItem);
+        
+        //Adicionar Tarefa de forma simples:
+        //main.innerHTML += novoItem;
 
-        //Adicionar Tarefa
-        main.innerHTML += novoItem;
         //Limpar Campo
         input.value = "";
         //Recuperar foco
         input.focus();
+        
 
 
     }
@@ -58,22 +62,26 @@ function marcarTarefa(id) {
     var item = document.getElementById(id);
     //Codigo pra pegar a class do item em causa
     var classe = item.getAttribute('class')
+    var icone = document.getElementById('img_' + id);
+    //var imga = item.getAttribute('')
     //console.log(classe)
-
+    
     if (classe == "item") {
         //adicionar classe "clicado" ao item. 
         item.classList.add('clicado')
-
-        var icone = document.getElementById('img_' + id);
-        icone.classList.remove('circle-outline');
-        icone.classList.add('check-circle')
-        //Colocar o item marcado no fundo da lista
+        icone.src = '/img/check-circle.svg'
         item.parentNode.appendChild(item);
+        
+        //icone.classList.remove('circle-outline');
+        //icone.classList.add('check-circle')
+        //Colocar o item marcado no fundo da lista
+        
     } else {
-        item.classList.remove('clicado')
-        var icone = document.getElementById('img_' + id);
-        icone.classList.add('circle-outline');
-        icone.classList.remove('check-circle')
+        item.classList.remove('clicado') 
+        icone.src = "/img/circle-outline.svg";
+        //item.parentNode.
+        //icone.classList.add('circle-outline');
+        //icone.classList.remove('check-circle')
     }
 }
 
