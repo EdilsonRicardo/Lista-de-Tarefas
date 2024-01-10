@@ -39,7 +39,25 @@ function addTarefa() {
         `
         // Adicionar Tarefa no início da lista
         main.insertAdjacentHTML('afterbegin', novoItem);
-        
+
+        /**
+         * EXPLICACAO DO insertAdjacentHTML
+         <body>
+        <h1>Element. insertAdjacentHTML - JavaScript DOM</h1>
+        <р id="myPara"> I'll write some <em›text</em>.</p>
+
+        <script>
+            -- beforebegin - before element 
+            -- afterbegin - first child 
+            -- beforeend - last child
+            -- afterend - after element
+
+            const myara = document.getElementById('myPra')
+            myPara.insertAdjacentHTML ('afterend', <strong>dcode</strong>')
+        </script>
+        </body>
+         */
+
         //Adicionar Tarefa de forma simples:
         //main.innerHTML += novoItem;
 
@@ -47,7 +65,7 @@ function addTarefa() {
         input.value = "";
         //Recuperar foco
         input.focus();
-        
+
 
 
     }
@@ -63,25 +81,22 @@ function marcarTarefa(id) {
     //Codigo pra pegar a class do item em causa
     var classe = item.getAttribute('class')
     var icone = document.getElementById('img_' + id);
-    //var imga = item.getAttribute('')
     //console.log(classe)
-    
+
     if (classe == "item") {
         //adicionar classe "clicado" ao item. 
-        item.classList.add('clicado')
-        icone.src = '/img/check-circle.svg'
+        item.classList.add('clicado');
+        icone.src = '/img/check-circle.svg';
         item.parentNode.appendChild(item);
-        
         //icone.classList.remove('circle-outline');
         //icone.classList.add('check-circle')
         //Colocar o item marcado no fundo da lista
-        
+
     } else {
-        item.classList.remove('clicado') 
+        item.classList.remove('clicado');
         icone.src = "/img/circle-outline.svg";
-        //item.parentNode.
         //icone.classList.add('circle-outline');
-        //icone.classList.remove('check-circle')
+        //icone.classList.remove('check-circle');
     }
 }
 
